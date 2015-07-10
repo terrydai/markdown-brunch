@@ -26,6 +26,7 @@ module.exports = class MarkdownCompiler
   compile: (data, path, callback) ->
     try
       result = umd(JSON.stringify(marked(data)))
+      console.log(result, callback);
     catch err
       error = err
     finally
