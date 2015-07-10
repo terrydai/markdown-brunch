@@ -1,12 +1,13 @@
 marked = require('marked')
 hljs = require('highlight.js')
-umd = require('umd-wrapper')
+sysPath = require('path')
 
 module.exports = class MarkdownCompiler
   brunchPlugin: yes
   type: 'template'
   extension: 'md'
   pattern: /(\.(markdown|mdown|mkdn|md|mkd|mdwn|mdtxt|mdtext|text))$/
+  customWrapper: 'amd'
 
   constructor: (config) ->
     languages = Object.keys(hljs.LANGUAGES)
@@ -25,8 +26,23 @@ module.exports = class MarkdownCompiler
 
   compile: (data, path, callback) ->
     try
-      result = umd(JSON.stringify(marked(data)))
-      console.log(result, callback);
+      ext  = sysPath.extname(path)
+      name = sysPath.join(sysPath.dirname(path), sysPath.basename(path, ext)).replace(/[\\]/g, '/')
+      result = JSON.stringify(marked(data))
+      if @customWrapper is 'amd'
+        result = """
+define("#{name}", ["exports"], function(__exports__) {
+  "use strict";
+  __exports__["default"] = #{result};
+});
+"""
+      else
+        result = """
+var temp = #{templateFunc}(#{content});
+if (module && module.exports) {
+  module.exports = Ember.TEMPLATES["#{templateName}"] = temp;
+}
+"""
     catch err
       error = err
     finally
