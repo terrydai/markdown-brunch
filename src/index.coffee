@@ -8,6 +8,7 @@ module.exports = class MarkdownCompiler
   extension: 'md'
   pattern: /(\.(markdown|mdown|mkdn|md|mkd|mdwn|mdtxt|mdtext|text))$/
   customWrapper: 'amd'
+  moduleName: (name)-> name
 
   constructor: (config) ->
     languages = Object.keys(hljs.LANGUAGES)
@@ -27,7 +28,7 @@ module.exports = class MarkdownCompiler
   compile: (data, path, callback) ->
     try
       ext  = sysPath.extname(path)
-      name = sysPath.join(sysPath.dirname(path), sysPath.basename(path, ext)).replace(/[\\]/g, '/')
+      name = @moduleName( sysPath.join(sysPath.dirname(path), sysPath.basename(path, ext)).replace(/[\\]/g, '/') )
       result = JSON.stringify(marked(data))
       if @customWrapper is 'amd'
         result = """
