@@ -2,7 +2,9 @@
   "name": "markdown-brunch",
   "version": "1.7.1",
   "description": "Compiles Markdown files to HTML in brunch.",
-  "author": "Juan Placencia",
+  "author": {
+    "name": "Juan Placencia"
+  },
   "homepage": "https://github.com/jupl/markdown-brunch",
   "repository": {
     "type": "git",
@@ -11,7 +13,7 @@
   "main": "./lib/index",
   "scripts": {
     "prepublish": "rm -rf lib && coffee --bare --output lib/ src/",
-    "test": "node_modules/.bin/mocha"
+    "test": "mocha"
   },
   "engines": {
     "node": "~0.6.10 || 0.8 || 0.9 || 0.10"
@@ -19,12 +21,21 @@
   "dependencies": {
     "marked": "~0.2.9",
     "highlight.js": "~7.4.0",
+    "coffee-script": "~1.6.3",
     "umd-wrapper": "~0.1.0"
   },
   "devDependencies": {
-    "coffee-script": "~1.6.3",
     "mocha": "~1.14.0",
     "chai": "~1.8.0",
     "jsdom": "~0.8.6"
-  }
+  },
+  "readme": "## markdown-brunch 1.7.1\r\n\r\n[<img src=\"https://david-dm.org/jupl/markdown-brunch.png\"/>](https://david-dm.org/jupl/markdown-brunch)\r\n[<img src=\"https://david-dm.org/jupl/markdown-brunch/dev-status.png\"/>](https://david-dm.org/jupl/markdown-brunch#info=devDependencies)\r\n\r\nCompiles Markdown files to HTML in [brunch](http://brunch.io) using [Marked](https://github.com/chjj/marked). [Highlight.js](http://softwaremaniacs.org/soft/highlight/en/) support is included for syntax highlighting. Plugin checks for files that have one of the following extensions:\r\n\r\n- .markdown\r\n- .mdown\r\n- .mkdn\r\n- .md\r\n- .mkd\r\n- .mdwn\r\n- .mdtxt\r\n- .mdtext\r\n- .text\r\n\r\nIt is important to note that this will only generate the necessary HTML. It is up to you to apply any additional CSS themes to make it more presentable. Visit the [highlight.js test site](http://highlightjs.org/static/test.html) for a list of default themes by Highlight.js.\r\n\r\n### Config\r\nMarked's default configuration options can be overridden using config. For example:\r\n\r\n```coffeescript\r\nmarked:\r\n  gfm: false\r\n  smartypants: true\r\n```\r\n\r\n### Syntax Highlighting\r\nCode blocks by default do not get syntax highlighted.\r\n\r\n    ```\r\n    No syntax highlighting here.\r\n    ```\r\n\r\nIf a Highlight-supported language is identified in a fenced code block, it will get syntax highlighted.\r\n\r\n    ```javascript\r\n    function add(x, y) {\r\n      return x + y;\r\n    }\r\n    ```\r\n\r\nYou can also use the `auto` identifier to use Highlight's language auto-detect feature.\r\n\r\n    ```auto\r\n    * {\r\n      box-sizing: border-box;\r\n    }\r\n    ```\r\n\r\nFor a list of supported languages, visit the [highlight.js test site](http://highlightjs.org/static/test.html).\r\n\r\n## Usage\r\nAdd `\"markdown-brunch\": \"x.y.z\"` to `package.json` of your brunch app.\r\n\r\nPick a plugin version that corresponds to your minor (y) brunch version.\r\n\r\nIf you want to use git version of plugin, add\r\n`\"markdown-brunch\": \"git+ssh://git@github.com:jupl/markdown-brunch.git\"`.\r\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jupl/markdown-brunch/issues"
+  },
+  "_id": "markdown-brunch@1.7.1",
+  "_shasum": "a8b1f08a8de980ea6691c7e00ff1a8795b913e59",
+  "_resolved": "git+https://github.com/terrydai/markdown-brunch#e78a9356f2468a008498ed76a7ebebd9ebb8eb58",
+  "_from": "markdown-brunch@git+https://github.com/terrydai/markdown-brunch"
 }
