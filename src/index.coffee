@@ -24,7 +24,7 @@ module.exports = class MarkdownCompiler
 
     # Set marked options
     marked.setOptions(options)
-    @nameCleaner = @config.modules?.nameCleaner || @config.plugins?.es6ModuleTranspiler?.moduleName || ((path)->path)
+    @nameCleaner = config.modules?.nameCleaner || config.plugins?.es6ModuleTranspiler?.moduleName || ((path)->path)
 
   compile: (data, path, callback) ->
     try
