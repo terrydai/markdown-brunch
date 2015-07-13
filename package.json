@@ -20,9 +20,8 @@
   },
   "dependencies": {
     "marked": "~0.2.9",
-    "highlight.js": "~7.4.0",
-    "coffee-script": "~1.6.3",
-    "umd-wrapper": "~0.1.0"
+    "highlight.js": "~8.6.0",
+    "coffee-script": "~1.6.3"
   },
   "devDependencies": {
     "mocha": "~1.14.0",
@@ -36,6 +35,6 @@
   },
   "_id": "markdown-brunch@1.7.1",
   "_shasum": "a8b1f08a8de980ea6691c7e00ff1a8795b913e59",
-  "_resolved": "git+https://github.com/terrydai/markdown-brunch#e78a9356f2468a008498ed76a7ebebd9ebb8eb58",
+  "_resolved": "git+https://github.com/terrydai/markdown-brunch#89e645cb57d69471f71d207fccf93dbc416b2ff0",
   "_from": "markdown-brunch@git+https://github.com/terrydai/markdown-brunch"
 }
