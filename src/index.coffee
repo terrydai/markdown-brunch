@@ -11,7 +11,8 @@ module.exports = class MarkdownCompiler
   nameCleaner: null
 
   constructor: (config) ->
-    languages = Object.keys(hljs.LANGUAGES)
+    #languages = Object.keys(hljs.LANGUAGES)
+    languages = hljs.listLanguages()
     options = Object.create(config.marked ? null)
 
     # If highlight isn't defined in config then use default Highlight.js
